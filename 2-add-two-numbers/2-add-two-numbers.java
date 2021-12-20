@@ -13,7 +13,8 @@ class Solution {
         ListNode res = new ListNode(0);
         int sum = 0;
         ListNode cur = res;
-        ListNode p1 = l1, p2 =l2;
+        ListNode p1 =l1;
+        ListNode p2 =l2;
         while(p1 != null || p2 != null){
             if(p1 != null){
                 sum += p1.val;
@@ -23,8 +24,8 @@ class Solution {
                 sum += p2.val;
                 p2 = p2.next;
             }
-            cur.next = new ListNode(sum%10);
-            sum = sum /10;
+            cur.next = new ListNode(sum % 10);
+            sum /= 10;
             cur = cur.next;
         }
         if(sum == 1){
@@ -33,3 +34,4 @@ class Solution {
         return res.next;
     }
 }
+       
