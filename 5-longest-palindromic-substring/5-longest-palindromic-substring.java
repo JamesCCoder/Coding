@@ -1,7 +1,6 @@
 class Solution {
     public String longestPalindrome(String s) {
-        
-        if(s == null || s.length() == 0){return s;}
+ if(s == null || s.length() == 0){return s;}
         boolean[][] dp = new boolean[s.length()][s.length()];
         int max = 0;
         String res = "";
@@ -18,4 +17,6 @@ class Solution {
         }
         return res;
     }
+        
 }
+
