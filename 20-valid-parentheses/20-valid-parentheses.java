@@ -11,6 +11,7 @@ class Solution {
             }else if(stack.isEmpty() || stack.pop() != ch){
                 return false;
             }
+            
         }
         return stack.isEmpty();
     }
