@@ -8,10 +8,8 @@ class Solution {
                 stack.push(']');
             }else if(ch == '{'){
                 stack.push('}');
-            }else{
-                if(stack.isEmpty() || stack.pop() != ch){
-                    return false;
-                }
+            }else if(stack.isEmpty() || stack.pop() != ch){
+                return false;
             }
         }
         return stack.isEmpty();
