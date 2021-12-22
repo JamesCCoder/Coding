@@ -6,6 +6,7 @@ class Solution {
         HashSet<Character>[] col = new HashSet[N];
         HashSet<Character>[] table = new HashSet[N];
         
+        
         for(int i = 0; i<N; i++){
             row[i] = new HashSet<Character>();
             col[i] = new HashSet<Character>();
@@ -23,13 +24,11 @@ class Solution {
                 if(row[i].contains(val)){
                     return false;
                 }
-                
                 row[i].add(val);
                 
                 if(col[j].contains(val)){
                     return false;
                 }
-                
                 col[j].add(val);
                 
                 int index = (i/3)*3 + j/3;
