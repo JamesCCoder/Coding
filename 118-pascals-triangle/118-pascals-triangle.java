@@ -16,11 +16,11 @@ class Solution {
                     row.add(1);
                 }else{
                     row.add(res.get(i-1).get(j-1) + res.get(i-1).get(j));
-                }
             }
+        }
             row.add(1);
             res.add(row);
-        }
-        return res;
     }
+        return res;
+}
 }
