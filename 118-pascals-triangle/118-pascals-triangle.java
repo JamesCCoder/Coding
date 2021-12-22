@@ -15,9 +15,7 @@ class Solution {
                 if(j == 0){
                     row.add(1);
                 }else{
-                    row.add(res.get(i-1).get(j-1)+res.get(i-1).get(j));
-                    
-                    
+                    row.add(res.get(i-1).get(j-1) + res.get(i-1).get(j));
                 }
             }
             row.add(1);
