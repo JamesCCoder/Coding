@@ -5,7 +5,7 @@ class Solution {
      
         
         for(int i = 1; i<=rowIndex; i++){
-            List<Integer> row = new ArrayList<>(i+1);
+            List<Integer> row = new ArrayList<>();
             for(int j = 0; j<i; j++){
                 if(j == 0){
                     row.add(1);
