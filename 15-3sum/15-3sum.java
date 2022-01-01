@@ -4,32 +4,31 @@ class Solution {
         Arrays.sort(nums);
         int n = nums.length;
         
-        for(int i = 0; i<n; i++){
+        for(int i = 0; i<nums.length; i++){
             if(nums[i] > 0) break;
-            if(i>0 && nums[i] == nums[i-1]) continue;
+            if(i>0 && nums[i] ==nums[i-1]) continue;
             
             int target = 0 - nums[i];
             
-            int low = i + 1; 
-            int high = n - 1;
+            int l = i+1;
+            int h = n-1;
             
-            while(low < high){
-                int tmpsum = nums[low] + nums[high];
-                if(tmpsum == target){
-                    res.add(Arrays.asList(new Integer[]{nums[i], nums[low], nums[high]}));
-                    low++;
-                    while(low < high && nums[low] == nums[low - 1]){
-                        low ++;
-                        
+            while(l<h){
+                int tmp = nums[l] + nums[h];
+                if(tmp == target){
+                    res.add(Arrays.asList(new Integer[]{nums[i], nums[l], nums[h]}));
+                    l++;
+                    while(l<h && nums[l] == nums[l-1]){
+                        l++;
                     }
-                    high --;
-                    while(low < high && nums[high] == nums[high + 1]){
-                        high --;
+                    h--;
+                    while(l<h && nums[h]==nums[h+1]){
+                        h--;
                     }
-                }else if(tmpsum < target){
-                    low ++;
+                }else if(tmp <target){
+                    l++;
                 }else{
-                    high --;
+                    h--;
                 }
             }
         }
