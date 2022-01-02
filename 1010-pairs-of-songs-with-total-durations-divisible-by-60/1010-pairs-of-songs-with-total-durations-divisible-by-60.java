@@ -1,7 +1,7 @@
 class Solution {
     public int numPairsDivisibleBy60(int[] time) {
-        int cp = 0;
-    Map<Integer, Integer> map = new LinkedHashMap<>();
+    int cp = 0;
+    Map<Integer, Integer> map = new HashMap<>();
     for (int value : time) {
         int remainder = value % 60;
         if (map.containsKey(remainder)) {
