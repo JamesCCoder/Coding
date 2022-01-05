@@ -7,7 +7,8 @@ class Solution {
             int sum = numbers[s] + numbers[e]; 
             if(target == sum){
                 return new int[]{s+1, e+1};
-            }else if(target > sum){
+            }
+            if(target > sum){
                 s++;
             }else{
                 e--;
