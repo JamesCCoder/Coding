@@ -1,22 +1,21 @@
 class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
-        
         if(n == 0){
             return 0;
         }
         
-        int robnext;
-        int robnextplusone;
+        int robn;
+        int robnn;
         
-        robnextplusone = 0;
-        robnext = nums[n-1];
+        robnn = 0;
+        robn = nums[n-1];
         
-        for(int i = n-2; i>=0; i--){
-            int current = Math.max(robnext, robnextplusone + nums[i]);
-            robnextplusone = robnext;
-            robnext = current;
+        for(int i = n-2; i>=0;i--){
+            int current = Math.max(robn, robnn + nums[i]);
+            robnn = robn;
+            robn = current;
         }
-        return robnext;
+        return robn;
     }
 }
