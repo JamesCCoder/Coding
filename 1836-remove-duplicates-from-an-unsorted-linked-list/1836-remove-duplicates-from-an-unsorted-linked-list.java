@@ -15,6 +15,14 @@ class Solution {
             r.put(i.val, r.getOrDefault(i.val, 0) + 1);
         }
         
+        /*
+         while(tmp != null){
+            r.put(tmp.val, r.getOrDefault(tmp.val, 0) + 1);
+            tmp = tmp.next;
+        }
+        */           
+    
+    
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode cur = dummy;
