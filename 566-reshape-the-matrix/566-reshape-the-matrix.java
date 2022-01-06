@@ -12,10 +12,12 @@ class Solution {
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
                res[x][y] = mat[i][j];
-                y++;
                 
-                if(y == c) {
-                    y = 0;
+                y = (y+1) % c;
+                
+                
+                if(y == 0) {
+             
                     x++;
                 }
             }
