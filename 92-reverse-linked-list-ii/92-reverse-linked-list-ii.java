@@ -24,11 +24,11 @@ class Solution {
 
         // 头插法插入节点
         for (int i = 0; i < n - m; i++) {
-            ListNode removed = p.next;
+            ListNode tmp = p.next;
             p.next = p.next.next;
 
-            removed.next = g.next;
-            g.next = removed;
+            tmp.next = g.next;
+            g.next = tmp;
         }
 
         return dummyHead.next;
