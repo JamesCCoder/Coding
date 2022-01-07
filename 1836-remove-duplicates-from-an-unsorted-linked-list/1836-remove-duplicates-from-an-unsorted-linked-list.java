@@ -16,6 +16,7 @@ class Solution {
         }
         
         /*
+         ListNode tmp = head;
          while(tmp != null){
             r.put(tmp.val, r.getOrDefault(tmp.val, 0) + 1);
             tmp = tmp.next;
