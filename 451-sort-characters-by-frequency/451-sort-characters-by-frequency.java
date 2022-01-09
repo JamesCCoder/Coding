@@ -7,11 +7,7 @@ class Solution {
         // A map of each char and its frequency
         HashMap<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
-            if (!map.containsKey(c)) {
-                map.put(c, 1);
-            } else {
-                map.put(c, map.get(c) + 1);
-            }
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
         
         // An array of lists of chars, at the index (frequency)
