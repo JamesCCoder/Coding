@@ -25,6 +25,7 @@ class Solution {
         if(res.size() == level){
             res.add(new ArrayList<Integer>());
         }
+        
         res.get(level).add(node.val);
         
         if(node.left != null){
