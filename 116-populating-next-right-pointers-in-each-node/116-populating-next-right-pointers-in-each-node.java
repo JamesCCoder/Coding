@@ -23,23 +23,32 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
+      if(root == null) return  null;
         
-        if(root == null){
-            return root;
+        if(root.left != null) { // check for left first
+            if(root.right != null) // if right of root is also present, then just assign this to left.next
+                root.left.next = root.right;
+            else 
+                root.left.next = findNext(root); // we need to find out which node in root.next comes next
         }
         
-        Node leftmost  = root;
-        while(leftmost.left != null){
-            Node head = leftmost;
-            while(head != null){
-                head.left.next = head.right;
-                if(head.next != null){
-                    head.right.next = head.next.left;
-                }
-                head = head.next;
-            }
-            leftmost = leftmost.left;
+        if(root.right != null) {
+            root.right.next = findNext(root); // for any right node of a root, we need to use the root's next to find the next
         }
+        
+        connect(root.right); // call from root.right first because of the way we use findNext(). We need to have answers in right first to find for left
+        connect(root.left);
+        
         return root;
     }
+    
+    private Node findNext(Node node) {
+        while(node.next != null) { // do until we get the next 
+            node = node.next;
+            if(node.left != null) return node.left;
+            if(node.right != null) return node.right;
+        }
+        return null;
+    }
 }
+
