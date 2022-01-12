@@ -1,33 +1,31 @@
 class MyStack {
-    
-    private Queue<Integer> queue;
 
+    private Queue<Integer> r = new LinkedList<>();
+    
     public MyStack() {
-        this.queue = new LinkedList<>();
+        
     }
     
     public void push(int x) {
-        int size = queue.size();
-        queue.offer(x);
-        for(int i = 0; i < size; i++) {
-            queue.offer(queue.poll());
+        int s = r.size();
+        r.add(x);
+        
+        for(int i = 0; i<s; i++){
+            r.add(r.poll());
         }
     }
     
-    //出队
     public int pop() {
-        return queue.poll();
+       return r.poll();
     }
     
-    //返回栈顶元素，但是不移除
     public int top() {
-        return queue.peek();
+       return r.peek();
     }
     
     public boolean empty() {
-        return queue.isEmpty();
+        return r.isEmpty();
     }
-
 }
 
 /**
