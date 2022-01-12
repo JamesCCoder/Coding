@@ -1,24 +1,25 @@
 class MyHashMap {
 
-    int INF = Integer.MAX_VALUE;
-    int N = 1000009;
-    int[] map = new int[N];
+     int[] bucket = new int[1000001];
+
     public MyHashMap() {
-        Arrays.fill(map, INF);
+        Arrays.fill(bucket, -1);
     }
     
     public void put(int key, int value) {
-        map[key] = value;
+        bucket[key] = value;
     }
     
     public int get(int key) {
-        return map[key] == INF ? -1 : map[key];
+        if (bucket[key] != -1)
+            return bucket[key];
+        else
+            return -1;
     }
     
     public void remove(int key) {
-        map[key] = INF;
-
-}
+        bucket[key]=-1;
+    }
 }
 /**
  * Your MyHashMap object will be instantiated and called as such:
