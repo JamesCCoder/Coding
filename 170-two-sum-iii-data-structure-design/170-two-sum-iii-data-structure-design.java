@@ -13,12 +13,11 @@ class TwoSum {
     public boolean find(int value) {
         for (int i : map.keySet()) {
             int target = value - i;
-            if (map.containsKey(target)) {
-                if (i == target && map.get(target) < 2) {
-                    continue;
-                }
+            if(i == target && map.get(i) > 1){
+                return true;   
+            } else if(i != target && map.containsKey(target)){
                 return true;
-            }
+            } 
         }
         return false;
     }
