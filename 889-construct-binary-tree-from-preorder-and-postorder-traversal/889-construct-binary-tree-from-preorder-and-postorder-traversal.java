@@ -18,14 +18,7 @@ class Solution {
          if(pre==null || pre.length==0) {
             return null;
         }
-        return dfs(pre,post);
-    }
-	
-    private TreeNode dfs(int[] pre,int[] post) {
-        if(pre==null || pre.length==0) {
-            return null;
-        }
-        //数组长度为1时，直接返回即可
+         //数组长度为1时，直接返回即可
         if(pre.length==1) {
             return new TreeNode(pre[0]);
         }
@@ -42,14 +35,14 @@ class Solution {
                 int[] post_left = Arrays.copyOfRange(post,0,left_count);
                 int[] post_right = Arrays.copyOfRange(post,left_count,n-1);
                 //递归执行前序数组左边、后序数组左边
-                root.left = dfs(pre_left,post_left);
+                root.left = constructFromPrePost(pre_left,post_left);
                 //递归执行前序数组右边、后序数组右边
-                root.right = dfs(pre_right,post_right);
+                root.right = constructFromPrePost(pre_right,post_right);
                 break;
             }
         }
         //返回根节点
         return root;
-
     }
+
 }
