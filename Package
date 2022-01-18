@@ -1,0 +1,25 @@
+class Solution {
+    public int maxValue(int N, int C, int[] v, int[] w) {
+        int[] dp = new int[C + 1];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j <= C; j++) {
+                dp[j] = Math.max(dp[j], j - v[i] >= 0 ? dp[j - v[i]] + w[i] : 0);
+            }
+        }
+        return dp[C];
+    }
+}
+
+
+
+class Solution {
+    public int maxValue(int N, int C, int[] v, int[] w) {
+        int[] dp = new int[C + 1];
+        for (int i = 0; i < N; i++) {
+            for (int j = C; j >= v[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j-v[i]] + w[i]);
+            }
+        }
+        return dp[C];
+    }
+}
