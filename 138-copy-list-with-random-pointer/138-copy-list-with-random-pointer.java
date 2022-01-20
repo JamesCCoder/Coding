@@ -14,23 +14,27 @@ class Node {
 */
 
 class Solution {
+    
+    HashMap<Node, Node> visitedHash = new HashMap<>();
+    
     public Node copyRandomList(Node head) {
-        HashMap<Node, Node> map = new HashMap<>();
-        Node dummy = new Node(0);
-        Node tail = dummy, tmp = head;
-        while (tmp != null) {
-            Node node = new Node(tmp.val);
-            map.put(tmp, node);
-            tail.next = node;
-            tail = tail.next;
-            tmp = tmp.next;
-        }
-        tail = dummy.next;
-        while (head != null) {
-            if (head.random != null) tail.random = map.get(head.random);
-            tail = tail.next;
-            head = head.next;
-        }
-        return dummy.next;
+  
+    if (head == null) {
+      return null;
+    }
+
+    if (this.visitedHash.containsKey(head)) {
+      return this.visitedHash.get(head);
+    }
+
+    Node node = new Node(head.val, null, null);
+
+
+    this.visitedHash.put(head, node);
+
+    node.next = this.copyRandomList(head.next);
+    node.random = this.copyRandomList(head.random);
+
+    return node;
     }
 }
