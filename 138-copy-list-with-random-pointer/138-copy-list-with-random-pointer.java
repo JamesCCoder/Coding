@@ -13,6 +13,7 @@ class Node {
 }
 */
 
+
 class Solution {
     
     HashMap<Node, Node> visitedHash = new HashMap<>();
@@ -27,7 +28,7 @@ class Solution {
       return this.visitedHash.get(head);
     }
 
-    Node node = new Node(head.val, null, null);
+    Node node = new Node(head.val);
 
 
     this.visitedHash.put(head, node);
