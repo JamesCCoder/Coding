@@ -1,15 +1,19 @@
-class Solution {
-    public int findTargetSumWays(int[] nums, int target) {
-        return helper(nums, target, 0, 0);
+public class Solution {
+    int count = 0;
+    
+    public int findTargetSumWays(int[] nums, int S) {
+        calculate(nums, 0, 0, S);
+        return count;
     }
     
-    public int helper(int[] nums, int target, int u, int cur){
-        if(u == nums.length){
-            return cur == target ? 1 : 0;
+    public void calculate(int[] nums, int i, int sum, int S) {
+        if (i == nums.length) {
+            if (sum == S) {
+                count++;
+            }
+        } else {
+            calculate(nums, i + 1, sum + nums[i], S);
+            calculate(nums, i + 1, sum - nums[i], S);
         }
-        
-        int left = helper(nums, target, u + 1, cur + nums[u]);
-        int right = helper(nums, target, u + 1, cur - nums[u]);
-        return left + right;
     }
 }
