@@ -15,7 +15,7 @@ class Solution {
             if(r - l + 1 > n){
                 c1[s.charAt(l++)]--;
             }
-            if(check(c1, c2)){
+            if(Arrays.equals(c1, c2)){
                 res.add(l);
             }
         }
@@ -23,12 +23,5 @@ class Solution {
         
     }
     
-    public boolean check(int[] c1, int[] c2){
-        for(int i = 0; i<128; i++){
-            if(c1[i] != c2[i]){
-                return false;
-            }
-        }
-        return true;
-    }
+
 }
