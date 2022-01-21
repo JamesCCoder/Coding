@@ -1,31 +1,30 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
-        List<Integer> ans = new ArrayList<>();
-        int n = s.length();
-        int m = p.length();
-        
+        List<Integer> res = new ArrayList<>();
         int[] c1 = new int[128];
         int[] c2 = new int[128];
+        int m = s.length();
+        int n = p.length();
         
-        for(int i = 0; i<p.length(); i++){
+        for(int i = 0; i<n; i++){
             c2[p.charAt(i)]++;
         }
         
-        for(int l = 0, r = 0; r < n; r++){
+        for(int l = 0, r = 0; r<m; r++){
             c1[s.charAt(r)]++;
-            if(r - l + 1 > m){
+            if(r - l + 1 > n){
                 c1[s.charAt(l++)]--;
             }
             if(check(c1, c2)){
-                ans.add(l);
+                res.add(l);
             }
-            
         }
-        return ans;
+        return res;
+        
     }
     
     public boolean check(int[] c1, int[] c2){
-        for(int i = 0; i< 128; i++){
+        for(int i = 0; i<128; i++){
             if(c1[i] != c2[i]){
                 return false;
             }
