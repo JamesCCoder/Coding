@@ -24,7 +24,7 @@ class Solution {
     public TreeNode helper(int left, int right){
         if(left > right) return null;
         
-        int m = (left + right)/2;
+        int m = (right - left)/2 + left;
         
         TreeNode root = new TreeNode(nums[m]);
         
