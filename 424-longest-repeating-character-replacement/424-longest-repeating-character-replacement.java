@@ -1,25 +1,22 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        char[] cs = s.toCharArray();
+        int res = 0;
         int[] cnt = new int[128];
-        
-        int ans = 0;
-        
+        char[] ch = s.toCharArray();
         for(int l = 0, r = 0; r < s.length(); r++){
-            cnt[cs[r]]++;
+            cnt[ch[r]]++;
             while(!check(cnt, k)){
-                cnt[cs[l++]]--;
+                cnt[ch[l++]]--;
             }
-            
-            ans = Math.max(ans, r - l + 1);
+            res = Math.max(res, r - l + 1);
         }
-        return ans;
+        return res;
     }
     
     public boolean check(int[] cnt, int k){
         int max = 0;
         int sum = 0;
-        for(int i = 0; i< 128; i++){
+        for(int i = 0; i<128; i++){
             max = Math.max(max, cnt[i]);
             sum += cnt[i];
         }
