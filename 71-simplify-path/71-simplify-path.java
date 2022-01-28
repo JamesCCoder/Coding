@@ -4,9 +4,11 @@ class Solution {
         String[] split = path.split("/");
         for (String s : split) {
             if (s.equals("") || s.equals(".")) continue;
-            if (s.equals("..")) {
+            if (s.equals("..") || s.equals(".")) {
                 if (!stack.isEmpty()) {
                     stack.pop();
+                }else{
+                    continue;
                 }
             } else {
                 stack.push(s);
