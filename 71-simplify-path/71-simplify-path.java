@@ -1,11 +1,13 @@
 class Solution {
     public String simplifyPath(String path) {
-         Stack<String> stack = new Stack<>();
+        Stack<String> stack = new Stack<>();
         String[] split = path.split("/");
         for (String s : split) {
             if (s.equals("") || s.equals(".")) continue;
             if (s.equals("..")) {
-                if (!stack.isEmpty()) stack.pop();
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
             } else {
                 stack.push(s);
             }
