@@ -15,7 +15,8 @@ class Solution {
         int j = 0;
         int k = 0;
         while(i< nums1.length && j < nums2.length){
-            merged[k++] = nums1[i] < nums2[j]? nums1[i++] : nums2[j++];   
+            merged[k] = nums1[i] < nums2[j]? nums1[i++] : nums2[j++];   
+            k++;
         }
         while(i< nums1.length){
             merged[k++] = nums1[i++];
