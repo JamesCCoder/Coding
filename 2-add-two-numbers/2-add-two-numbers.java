@@ -24,6 +24,7 @@ class Solution {
                 sum += p2.val;
                 p2 = p2.next;
             }
+            
             cur.next = new ListNode(sum % 10);
             sum /= 10;
             cur = cur.next;
