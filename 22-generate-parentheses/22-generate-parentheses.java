@@ -1,18 +1,17 @@
 class Solution {
     List<String> res = new ArrayList<>();
     public List<String> generateParenthesis(int n) {
-        
-        helper(n,n,"");
+        helper(n, n, "");
         return res;
     }
     
-    public void helper(int left, int right, String cur){
-        if(left < 0 || right < 0|| left > right) return;
-        if(left == 0 && right == 0){
-            res.add(cur);
+    public void helper(int l, int r, String s){
+        if(l > r || l < 0 || r < 0) return;
+        if(l == 0 && r == 0){
+            res.add(s);
             return;
         }
-        helper(left - 1, right, cur + "(");
-        helper(left, right - 1, cur + ")");
+        helper(l - 1, r, s + "(");
+        helper(l, r -1, s +  ")");
     }
 }
