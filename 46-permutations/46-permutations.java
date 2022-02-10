@@ -1,10 +1,6 @@
-
 class Solution {
-    
      List<List<Integer>> res = new ArrayList<>();
      public List<List<Integer>> permute(int[] nums) {
-        
-     
         helper(new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
     }
@@ -24,3 +20,5 @@ class Solution {
         }
     }
 }
+
+
