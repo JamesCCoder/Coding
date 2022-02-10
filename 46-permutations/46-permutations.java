@@ -1,6 +1,6 @@
 class Solution {
-     List<List<Integer>> res = new ArrayList<>();
-     public List<List<Integer>> permute(int[] nums) {
+    List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> permute(int[] nums) {
         helper(new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
     }
@@ -9,7 +9,6 @@ class Solution {
         if(cur.size() == nums.length){
             res.add(new ArrayList(cur));
         }
-        
         for(int i = 0; i<nums.length; i++){
             if(visited[i]) continue;
             cur.add(nums[i]);
@@ -20,5 +19,3 @@ class Solution {
         }
     }
 }
-
-
