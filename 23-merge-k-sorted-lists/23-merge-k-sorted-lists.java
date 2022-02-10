@@ -13,35 +13,32 @@ class Solution {
         if(lists.length == 0) return null;
         if(lists.length == 1) return lists[0];
         
-        ListNode res = mergeTwoList(lists[0], lists[1]);
+        ListNode res = mergeNode(lists[0], lists[1]);
         for(int i = 2; i<lists.length; i++){
-            res = mergeTwoList(res, lists[i]);
+            res = mergeNode(res, lists[i]);
         }
         return res;
     }
     
-    public ListNode mergeTwoList(ListNode l1, ListNode l2){
-        ListNode h = new ListNode(0);
-        ListNode ans = h;
+    public ListNode mergeNode(ListNode l1, ListNode l2){
+        ListNode list = new ListNode(0);
+        ListNode cur = list;
         while(l1 != null && l2 != null){
             if(l1.val < l2.val){
-                h.next = l1;
-                h = h.next;
+                cur.next = new ListNode(l1.val);
                 l1 = l1.next;
             }else{
-                h.next = l2;
-                h = h.next;
+                cur.next = new ListNode(l2.val);
                 l2 = l2.next;
             }
+            cur =cur.next;
         }
-        
         if(l1 == null){
-            h.next = l2;
+            cur.next = l2;
         }
         if(l2 == null){
-            h.next = l1;
+            cur.next = l1;
         }
-        
-        return ans.next;
+        return list.next;
     }
 }
