@@ -7,7 +7,7 @@ class Solution {
                 l = Math.max(l, map.get(s.charAt(r)) + 1);
             }
             map.put(s.charAt(r), r);
-            res = Math.max(res, r - l + 1);
+            res = Math.max(res, r - l + 1);  
         }
         return res;
     }
