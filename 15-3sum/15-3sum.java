@@ -3,29 +3,30 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         
+
         for(int i = 0; i<nums.length; i++){
-            if(nums[i]>0) break;
-            if(i>0 && nums[i] == nums[i-1]) continue;
+            if(nums[i] > 0) break;
+            if(i > 0 && nums[i] == nums[i-1]) continue;
             
+            int l = i + 1;
+            int r = nums.length -1;
             int target = 0 - nums[i];
-            int s = i+1;
-            int l = nums.length-1;
             
-            while(s<l){
-                int tmp = nums[s] + nums[l];
+            while(l < r){
+                int tmp = nums[l] + nums[r];
                 if(tmp == target){
-                    res.add(Arrays.asList(new Integer[]{nums[i], nums[s], nums[l]}));
-                    while(s<l && nums[s] == nums[s-1]){
-                        s++;
+                    res.add(Arrays.asList(new Integer[]{nums[i], nums[l], nums[r]}));
+                    while(l < r && nums[l] == nums[l-1]){
+                        l++;
                     }
-                    l--;
-                    while(s<l && nums[l] == nums[l+1]){
-                        l--;
+                    r--;
+                    while(l < r && nums[r] == nums[r+1]){
+                        r--;
                     }
                 }else if(tmp < target){
-                    s++;
+                    l++;
                 }else{
-                    l--;
+                    r--;
                 }
             }
         }
