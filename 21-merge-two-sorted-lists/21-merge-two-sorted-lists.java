@@ -22,7 +22,6 @@ class Solution {
             }
             cur = cur.next;
         }
-        
         if(l1 == null){
             cur.next = l2;
         }
