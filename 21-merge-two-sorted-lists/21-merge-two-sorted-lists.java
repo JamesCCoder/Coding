@@ -28,6 +28,7 @@ class Solution {
         if(l2 == null){
             cur.next = l1;
         }
+        
         return res.next;
     }
 }
