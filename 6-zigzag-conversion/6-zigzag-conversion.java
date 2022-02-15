@@ -18,7 +18,7 @@ class Solution {
         }
         
         StringBuilder res = new StringBuilder();
-        for(StringBuilder sb: list){
+        for(StringBuilder sb : list){
             res.append(sb);
         }
         return res.toString();
