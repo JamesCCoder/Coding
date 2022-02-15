@@ -13,7 +13,7 @@ class Solution {
             
             if(left == right){
                 maxLength = Math.max(maxLength, right * 2);
-            }else if(right >= left){
+            }else if(right > left){
                 left = 0;
                 right = 0;
             }
@@ -31,7 +31,7 @@ class Solution {
             
             if(right == left){
                 maxLength = Math.max(maxLength, left*2);
-            }else if(left >= right){
+            }else if(left > right){
                 left = 0;
                 right = 0;
             }
