@@ -1,18 +1,18 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length -1;
-        while(start <= end){
-            int mid = (end - start)/2 + start;
-            if(nums[mid] == target){
-                return mid;
+        int l = 0;
+        int r = nums.length - 1;
+        while(l <= r){
+            int m = (r - l)/2 + l;
+            if(nums[m] == target){
+                return m;
             }
-            if(target< nums[mid]){
-                end = mid - 1;
+            if(target < nums[m]){
+                r = m - 1;
             }else{
-                start = mid + 1;
+                l = m + 1;
             }
         }
-        return start;
+        return l;
     }
 }
