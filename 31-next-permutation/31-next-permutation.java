@@ -1,7 +1,7 @@
 class Solution {
     public void nextPermutation(int[] nums) {
         int n = nums.length;
-        for(int i = nums.length - 1; i> 0; i--){
+        for(int i = nums.length -1; i>0; i--){
             if(nums[i] - nums[i-1] > 0){
                 Arrays.sort(nums, i, n);
             }
