@@ -15,22 +15,22 @@ class Solution {
         map.put("IV", 4);
         map.put("I", 1);
         
-        int index = 0;
         int res = 0;
-        
-        while(index < s.length()){
-            if(index < s.length()-1){
-                String db = s.substring(index, index + 2);
+        int idx = 0;
+        while(idx < s.length()){
+            if(idx < s.length()- 1){
+                String db = s.substring(idx, idx + 2);
                 if(map.containsKey(db)){
-                    res += map.get(db);
-                    index = index + 2;
+                    res = res + map.get(db);
+                    idx = idx + 2;
                     continue;
                 }
+                
             }
-            String sg = s.substring(index, index + 1);
+            String sg = s.substring(idx, idx + 1);
             if(map.containsKey(sg)){
-                res += map.get(sg);
-                index = index + 1;
+                res = res + map.get(sg);
+                idx = idx + 1;
             }
         }
         return res;
