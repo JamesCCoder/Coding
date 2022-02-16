@@ -7,9 +7,9 @@ class Solution {
     
     public void helper(List<Integer> cur, int[] nums, boolean[] visited){
         if(cur.size() == nums.length){
-            res.add(new ArrayList(cur));
+            res.add(new ArrayList<>(cur));
         }
-        for(int i = 0; i< nums.length; i++){
+        for(int i = 0; i<nums.length; i++){
             if(visited[i]) continue;
             cur.add(nums[i]);
             visited[i] = true;
