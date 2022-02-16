@@ -19,7 +19,6 @@ public class Solution {
             res.add(head);
             head = head.next;
         }
-        
         return false;
     }
 }
