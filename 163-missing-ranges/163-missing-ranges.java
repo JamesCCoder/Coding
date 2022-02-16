@@ -1,26 +1,25 @@
 class Solution {
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
-        int begin = lower;
-        int end = upper;
-        for(int num : nums){
-            if(begin == num){
-                begin++;
-            }else if(begin < num){
-                if(begin + 1 == num){
-                    res.add(String.valueOf(begin));
+        int cur = lower;
+        
+        for(int num: nums){
+            if(cur == num){
+                cur++;
+            }else if(cur < num){
+                if(cur + 1 == num){
+                    res.add(String.valueOf(cur));
                 }else{
-                    res.add(begin + "->" +(num - 1));
+                    res.add(cur + "->" + (num-1));
                 }
-                
-                begin = num + 1;
             }
+            cur = num + 1;
         }
         
-        if(begin == upper){
-            res.add(String.valueOf(begin));
-        }else if(begin < end){
-            res.add(begin + "->" + end);
+        if(cur == upper){
+            res.add(String.valueOf(cur));
+        }else if(cur < upper){
+            res.add(cur + "->" + upper);
         }
         return res;
     }
