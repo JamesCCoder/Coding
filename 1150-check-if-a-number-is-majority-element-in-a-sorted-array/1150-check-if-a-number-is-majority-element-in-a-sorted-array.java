@@ -1,15 +1,13 @@
 class Solution {
     public boolean isMajorityElement(int[] nums, int target) {
-        int sum = 0;
-        for(int i = 0;i<nums.length; i++){
-            if(nums[i]==target){
-                sum++;
+        int res = 0;
+        int n = nums.length / 2;
+        for(int num : nums){
+            if(num == target){
+                res++;
+                if(res > n) return true;
             }
         }
-        if(sum*2 > nums.length){
-            return true;
-        }else{
-            return false;
-        }
+        return false;
     }
 }
