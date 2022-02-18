@@ -1,27 +1,16 @@
 class Solution {
     public int findLucky(int[] arr) {
-        int lucky = -1;
-        Map<Integer, Integer> res = new HashMap<>();
-        for(int i = 0; i<arr.length; i++){
-            if(!res.containsKey(arr[i])){
-                res.put(arr[i], 1);
-            }else{
-                res.put(arr[i], res.get(arr[i])+1);
-            }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int res = -1;
+        for(int num: arr){
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         
-        int s= Integer.MIN_VALUE;
-        for(int i = 0; i<arr.length; i++){
-            if(arr[i]==res.get(arr[i])){
-                lucky = arr[i];
-                if(lucky>s){
-                    s = lucky;
-                }
+        for(int i : map.keySet()){
+            if(map.get(i) == i){
+                res = i;
             }
         }
-        if(s<0){
-            s = -1;
-        }
-        return s;
+        return res;
     }
 }
