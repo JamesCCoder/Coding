@@ -10,7 +10,7 @@ class Solution {
                 }
             }
         }
-   Collections.sort(res);
+    Collections.sort(res);
     return res;
   
     }
