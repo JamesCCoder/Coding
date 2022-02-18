@@ -15,6 +15,6 @@ public Node lowestCommonAncestor(Node p, Node q) {
 		a = a == null? q : a.parent;
 		b = b == null? p : b.parent;    
 	}
-	return a;
+	return b;
 }
 }
