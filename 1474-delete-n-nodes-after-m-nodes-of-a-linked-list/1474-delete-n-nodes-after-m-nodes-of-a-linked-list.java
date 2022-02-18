@@ -11,8 +11,8 @@
 class Solution {
     public ListNode deleteNodes(ListNode head, int m, int n) {
         ListNode res = new ListNode(0, head);
-        ListNode first = res.next;
-        ListNode second = res.next;
+        ListNode first =head;
+        ListNode second = head;
         
         while(first != null){
             int mCount = m;
