@@ -1,25 +1,25 @@
 class Solution {
     public String minRemoveToMakeValid(String s) {
         StringBuilder sb = new StringBuilder();
-        int count = 0;
-        for(int i = 0; i<s.length(); i++){
-            char c = s.charAt(i);
+        int sum = 0;
+        for(char c : s.toCharArray()){
             if(c == '('){
-                count++;
+                sum++;
                 sb.append(c);
             }else if(c == ')'){
-                if(count > 0){
-                    count--;
+                if(sum > 0){
+                    sum--;
                     sb.append(c);
                 }
             }else{
                 sb.append(c);
             }
         }
-        for(int i = sb.length() - 1; i>=0 && count > 0; i--){
+        
+        for(int i = sb.length()-1; i>=0 && sum > 0; i--){
             if(sb.charAt(i) == '('){
                 sb.deleteCharAt(i);
-                count--;
+                sum--;
             }
         }
         return sb.toString();
