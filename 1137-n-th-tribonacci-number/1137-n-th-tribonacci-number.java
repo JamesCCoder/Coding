@@ -6,7 +6,7 @@ class Solution {
         int c = 1;
         for(int i = 3; i<=n; i++){
             int tmp = a + b + c;
-            a = b;
+            a= b;
             b = c;
             c = tmp;
         }
