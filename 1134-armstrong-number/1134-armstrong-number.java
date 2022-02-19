@@ -1,16 +1,13 @@
 class Solution {
     public boolean isArmstrong(int n) {
-        String s = Integer.toString(n);
-        int len = s.length();
+        int m = Integer.toString(n).length();
+        int tmp = n;
         int sum = 0;
-        int x = n;
-        
-        while(n != 0){
-            int m = n % 10;
-            sum += Math.pow(m, len);
-            n = n / 10;
+        while(tmp != 0){
+            int tmp1 = tmp % 10;
+            sum += Math.pow(tmp1, m);
+            tmp /= 10;
         }
-        return sum == x;
+        return sum == n;
     }
 }
-
