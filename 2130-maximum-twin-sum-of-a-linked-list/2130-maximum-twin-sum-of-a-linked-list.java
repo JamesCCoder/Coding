@@ -20,7 +20,7 @@ class Solution {
         
         int s = 0;
         int e = res.size()-1;
-        int max = Integer.MIN_VALUE;
+        int max = 0;
         while(s < e){
             int sum = res.get(s) + res.get(e);
             if(sum > max){
