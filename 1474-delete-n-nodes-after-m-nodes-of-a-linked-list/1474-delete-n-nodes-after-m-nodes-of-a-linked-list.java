@@ -11,23 +11,22 @@
 class Solution {
     public ListNode deleteNodes(ListNode head, int m, int n) {
         ListNode res = new ListNode(0, head);
-        ListNode first =head;
+        ListNode first = head;
         ListNode second = head;
         
         while(first != null){
-            int mCount = m;
-            int nCount = n;
-            while(first != null && mCount != 0){
+            int m1 = m;
+            int n1 = n;
+            while(first != null && m1 != 0){
                 second = first;
                 first = first.next;
-                mCount--;
+                m1--;
             }
             
-            while(first != null && nCount != 0){
+            while(first != null && n1 != 0){
                 first = first.next;
-                nCount--;
+                n1--;
             }
-            
             second.next = first;
         }
         return res.next;
