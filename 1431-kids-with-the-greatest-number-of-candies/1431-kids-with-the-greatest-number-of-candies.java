@@ -1,27 +1,27 @@
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> res = new ArrayList<>();
-        int[] candiess = new int[candies.length];
-        for(int i =0;i<candies.length; i++){
-            candiess[i] = candies[i]+extraCandies;
-            
+        int[] in = new int[candies.length];
+        int sum = 0;
+        
+        for(int i = 0; i<candies.length; i++){
+            in[i] = candies[i] + extraCandies;
         }
-        int n = 0;
-        for(int j = 0; j<candies.length; j++){
-            for(int k = 0; k<candies.length; k++){
-               if(candiess[j]>=candies[k]){
-                   n++;
-               } 
+        
+        for(int i = 0; i<candies.length; i++){
+            for(int j = 0; j<candies.length; j++){
+                if(in[i] >= candies[j]){
+                    sum++;
+                }
+                
             }
-            if(n==candies.length){
-                res.add(true);
-                n=0;
-            }else{
-                res.add(false);
-                n=0;
-            }
+             if(sum == candies.length){
+                        res.add(true);
+                    }else{
+                        res.add(false);
+                    }
+            sum = 0;
         }
         return res;
-        
     }
 }
