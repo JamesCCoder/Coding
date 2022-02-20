@@ -26,19 +26,20 @@
  *     public List<NestedInteger> getList();
  * }
  */
-public class Solution {
+class Solution {
     public int depthSum(List<NestedInteger> nestedList) {
-        return depthSum(nestedList, 1);
+        return helper(nestedList, 1);
     }
-    public int depthSum(List<NestedInteger> nestedList, int level) {
-        int result = 0;
-        for(NestedInteger ni : nestedList) {
-            if (ni.isInteger()) {
-                result = result + (level * ni.getInteger());
-            }else {
-                result = result + depthSum(ni.getList(), level+1);
+    
+    public int helper(List<NestedInteger> nestedList, int level){
+        int res = 0;
+        for(NestedInteger i: nestedList){
+            if(i.isInteger()){
+                res = res + level * i.getInteger();
+            }else{
+                res = res + helper(i.getList(), level + 1);
             }
         }
-        return result;
+        return res;
     }
 }
