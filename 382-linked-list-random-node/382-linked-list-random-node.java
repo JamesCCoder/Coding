@@ -10,18 +10,17 @@
  */
 class Solution {
 
-    List<Integer> res = new ArrayList<>();
-        
+    List<Integer> list = new ArrayList<>();
     public Solution(ListNode head) {
         while(head != null){
-            res.add(head.val);
+            list.add(head.val);
             head = head.next;
         }
     }
     
     public int getRandom() {
-        int pick = (int)(Math.random() * res.size());
-        return res.get(pick);
+        int res = (int)(Math.random() * list.size());
+        return list.get(res);
     }
 }
 
