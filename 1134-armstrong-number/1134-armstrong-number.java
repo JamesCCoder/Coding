@@ -4,8 +4,7 @@ class Solution {
         int res = 0;
         int tmp = n;
         while(tmp != 0){
-            int tmpp = tmp % 10;
-            res += Math.pow(tmpp,m);
+            res += Math.pow(tmp % 10,m);
             tmp /= 10;
         }
         return res == n;
