@@ -10,20 +10,24 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-    ListNode dummy1 = new ListNode(0), dummy2 = new ListNode(0);  //dummy heads of the 1st and 2nd queues
-    ListNode curr1 = dummy1, curr2 = dummy2;      //current tails of the two queues;
-    while (head!=null){
-        if (head.val<x) {
-            curr1.next = head;
-            curr1 = head;
-        }else {
-            curr2.next = head;
-            curr2 = head;
+        ListNode l1 = new ListNode(0);
+        ListNode l2 = new ListNode(0);
+        ListNode cur1 = l1;
+        ListNode cur2 = l2;
+        while(head != null){
+            if(head.val < x){
+                cur1.next = head;
+                cur1 = head;
+            }else{
+                cur2.next = head;
+                cur2 = head;
+            }
+            head = head.next;
         }
-        head = head.next;
+        
+        cur2.next = null;
+        cur1.next = l2.next;
+        
+        return l1.next;
     }
-    curr2.next = null;          //important! avoid cycle in linked list. otherwise u will get TLE.
-    curr1.next = dummy2.next;
-    return dummy1.next;
-}
 }
