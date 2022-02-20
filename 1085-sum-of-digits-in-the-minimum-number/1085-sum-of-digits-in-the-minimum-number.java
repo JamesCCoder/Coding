@@ -6,8 +6,7 @@ class Solution {
         int res = 0;
         
         while(x != 0){
-            int tmp = x % 10;
-            res += tmp;
+            res += x % 10;
             x /= 10;
             
         }
