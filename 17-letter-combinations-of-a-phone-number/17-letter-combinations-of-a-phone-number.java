@@ -1,6 +1,6 @@
 class Solution {
     
-    String[] board = new String[]{"", "", "abc", "def", "ghi", "jkl","mno", "pqrs", "tuv","wxyz"};
+    String[] board = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
     List<String> res = new ArrayList<>();
     public List<String> letterCombinations(String digits) {
         if(digits.length() == 0) return res;
@@ -13,14 +13,12 @@ class Solution {
             res.add(cur.toString());
             return;
         }
-        
         String letter = board[digits.charAt(index) - '0'];
-        for(int i = 0; i< letter.length(); i++){
+        for(int i = 0; i<letter.length(); i++){
             char c = letter.charAt(i);
             cur.append(c);
             helper(digits, cur, index + 1);
             cur.deleteCharAt(cur.length()-1);
         }
-        
     }
 }
