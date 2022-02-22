@@ -10,7 +10,7 @@ public class Solution extends VersionControl {
             if(isBadVersion(m)){
                 r = m;
             }else{
-                l = m +1;
+                l = m + 1;
             }
         }
         return l;
