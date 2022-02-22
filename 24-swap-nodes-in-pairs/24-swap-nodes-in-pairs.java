@@ -11,10 +11,11 @@
 class Solution {
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null) return head;
-        ListNode fNode = head;
-        ListNode sNode = head.next;
-        fNode.next = swapPairs(sNode.next);
-        sNode.next = fNode;
-        return sNode;
+        ListNode first = head;
+        ListNode second = head.next;
+        
+        first.next = swapPairs(second.next);
+        second.next = first;
+        return second;
     }
 }
