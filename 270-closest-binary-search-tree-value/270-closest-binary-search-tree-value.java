@@ -14,15 +14,16 @@
  * }
  */
 class Solution {
-    int val = Integer.MAX_VALUE;
+    int res = Integer.MAX_VALUE;
     public int closestValue(TreeNode root, double target) {
         
-        if (root == null) return 0;
-        if (Math.abs(val - target) > Math.abs(root.val - target)){
-            val = root.val;
+        if(root == null) return 0;
+        
+        if(Math.abs(res - target) > Math.abs(root.val - target)){
+            res = root.val;
         }
         closestValue(root.left, target);
         closestValue(root.right, target);
-        return val;
+        return res;
     }
 }
