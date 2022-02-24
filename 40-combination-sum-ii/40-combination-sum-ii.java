@@ -7,7 +7,7 @@ class Solution {
     }
     
     public void helper(List<Integer> cur, int[] candidates, int target, int index){
-        if(target<= 0){
+        if(target <= 0){
             if(target == 0){
                 res.add(new ArrayList<>(cur));
             }
@@ -18,7 +18,7 @@ class Solution {
             if(i > index && candidates[i] == candidates[i-1]) continue;
             cur.add(candidates[i]);
             helper(cur, candidates, target - candidates[i], i + 1);
-            cur.remove(cur.size()-1);
+            cur.remove(cur.size() - 1);
         }
     }
 }
