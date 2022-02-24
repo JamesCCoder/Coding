@@ -7,21 +7,23 @@ class Solution {
             return res;
         }
         res[0] = l;
-        res[1] = r - 1;
+        res[1] = r-1;
         return res;
     }
     
     public int search(int[] nums, double target){
-        int s = 0;
-        int e = nums.length - 1;
-        while(s <= e){
-            int m = (e - s)/2 + s;
-            if(target >= nums[m]){
-                s = m + 1;
+        int l = 0;
+        int r = nums.length - 1;
+        while(l <= r){
+            int m = (r - l)/2 + l;
+            if(nums[m] == target){
+                return m;
+            }else if(target > nums[m]){
+                l = m + 1;
             }else{
-                e = m - 1;
+                r = m - 1;
             }
         }
-        return s;
+        return l;
     }
 }
