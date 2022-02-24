@@ -18,19 +18,19 @@ class Solution {
         int res = 0;
         int idx = 0;
         while(idx < s.length()){
-            if(idx < s.length()- 1){
+            if(idx < s.length() - 1){
                 String db = s.substring(idx, idx + 2);
                 if(map.containsKey(db)){
-                    res = res + map.get(db);
-                    idx = idx + 2;
+                    res += map.get(db);
+                    idx += 2;
                     continue;
                 }
-                
             }
-            String sg = s.substring(idx, idx + 1);
-            if(map.containsKey(sg)){
-                res = res + map.get(sg);
-                idx = idx + 1;
+                String sg = s.substring(idx, idx + 1);
+                if(map.containsKey(sg)){
+                    res += map.get(sg);
+                    idx += 1;
+                
             }
         }
         return res;
