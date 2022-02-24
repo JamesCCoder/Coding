@@ -1,8 +1,6 @@
 class Solution {
     List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> permuteUnique(int[] nums) {
-        
-        if(nums.length < 1) return res;
         Arrays.sort(nums);
         helper(new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
@@ -11,7 +9,6 @@ class Solution {
     public void helper(List<Integer> cur, int[] nums, boolean[] visited){
         if(cur.size() == nums.length){
             res.add(new ArrayList(cur));
-            return;
         }
         
         for(int i = 0; i< nums.length; i++){
