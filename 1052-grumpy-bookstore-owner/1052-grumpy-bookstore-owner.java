@@ -8,8 +8,8 @@ class Solution {
             }
         }
         
-        int max = 0;
         int cur = 0;
+        int max = 0;
         
         for(int l = 0, r = 0; r<customers.length; r++){
             cur += customers[r];
@@ -18,6 +18,6 @@ class Solution {
             }
             max = Math.max(max, cur);
         }
-        return sum + max;
+        return max + sum;
     }
 }
