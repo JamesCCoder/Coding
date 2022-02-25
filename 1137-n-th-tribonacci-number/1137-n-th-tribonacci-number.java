@@ -4,11 +4,12 @@ class Solution {
         int a = 0;
         int b = 1;
         int c = 1;
+        int res = 0;
         for(int i = 3; i<=n; i++){
-            int tmp = a + b + c;
-            a= b;
-            b = c;
-            c = tmp;
+            res = a + b + c;
+            a = b;
+            b = c; 
+            c = res;
         }
         return c;
     }
