@@ -6,6 +6,7 @@ class Solution {
         int[][] res = new int[m][n];
         res[0][0] = obstacleGrid[0][0] == 1 ? 0 : 1;
         
+
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
                 if(obstacleGrid[i][j] != 1){
@@ -19,6 +20,6 @@ class Solution {
                 }
             }
         }
-            return res[m - 1][n - 1];
+        return res[m-1][n-1];
     }
 }
