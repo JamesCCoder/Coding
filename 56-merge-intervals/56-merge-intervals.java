@@ -2,17 +2,20 @@ class Solution {
     public int[][] merge(int[][] intervals) {
         if(intervals.length == 0 || intervals == null) return intervals;
         Arrays.sort(intervals, (int[] a, int[] b) -> a[0] - b[0]);
-        List<int[]> res = new ArrayList<>();
-        res.add(intervals[0]);
-        
-        for(int i = 1; i<intervals.length; i++){
-            int[] lastArray = res.get(res.size()-1);
-            if(lastArray[1] >= intervals[i][0]){
-                lastArray[1] = Math.max(lastArray[1], intervals[i][1]);
-            }else{
-                res.add(intervals[i]);
-            }
-        }
-        return res.toArray(new int[res.size()][2]);
+        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+
+		List<int[]> result = new ArrayList<>();
+		int[] newInterval = intervals[0];
+		result.add(newInterval);
+		for (int[] interval : intervals) {
+			if (interval[0] <= newInterval[1]) // Overlapping intervals, move the end if needed
+				newInterval[1] = Math.max(newInterval[1], interval[1]);
+			else {                             // Disjoint intervals, add the new interval to the list
+				newInterval = interval;
+				result.add(newInterval);
+			}
+		}
+
+		return result.toArray(new int[result.size()][]);
     }
 }
