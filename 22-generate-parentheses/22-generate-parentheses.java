@@ -7,12 +7,12 @@ class Solution {
     
     public void helper(int l, int r, String s){
         if(l > r || l < 0 || r < 0){
-            return;
+           return;
         }
         if(l == 0 && r == 0){
             res.add(s);
         }
-        helper(l-1, r, s + "(");
+        helper(l - 1, r, s + "(");
         helper(l, r - 1, s + ")");
     }
 }
