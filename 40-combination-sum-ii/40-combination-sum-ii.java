@@ -6,19 +6,19 @@ class Solution {
         return res;
     }
     
-    public void helper(List<Integer> cur, int[] candidates, int target, int index){
+    public void helper(List<Integer> cur, int[] candidates, int target, int idx){
         if(target <= 0){
             if(target == 0){
-                res.add(new ArrayList<>(cur));
+                res.add(new ArrayList(cur));
             }
             return;
         }
         
-        for(int i = index; i<candidates.length; i++){
-            if(i > index && candidates[i] == candidates[i-1]) continue;
+        for(int i = idx; i < candidates.length; i++){
+            if(i > idx && candidates[i] == candidates[i-1]) continue;
             cur.add(candidates[i]);
             helper(cur, candidates, target - candidates[i], i + 1);
-            cur.remove(cur.size() - 1);
+            cur.remove(cur.size()-1);
         }
     }
 }
