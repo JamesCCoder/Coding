@@ -13,7 +13,8 @@ class Solution {
         ListNode res = new ListNode(0, head);
         ListNode l1 = res;
         ListNode l2 = res;
-        for(int i = 1; i<=n+1; i++){
+        
+        for(int i = 1; i<=n+ 1; i++){
             l1 = l1.next;
         }
         
@@ -21,8 +22,8 @@ class Solution {
             l1 = l1.next;
             l2 = l2.next;
         }
-        
         l2.next = l2.next.next;
+        
         return res.next;
     }
 }
