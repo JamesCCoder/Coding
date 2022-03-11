@@ -12,22 +12,22 @@ class Solution {
             int target = 0 - nums[i];
             
             while(l < r){
-                int tmp = nums[l] + nums[r];
-                if(tmp == target){
+                int sum = nums[l] + nums[r];
+                if(sum == target){
                     res.add(Arrays.asList(new Integer[]{nums[l], nums[r], nums[i]}));
                     while(l < r && nums[l] == nums[l-1]){
                         l++;
                     }
                     r--;
                     while(l < r && nums[r] == nums[r+1]){
-                         r--;
+                        r--;
                     }
-                   
-                }else if(tmp < target){
+                }else if(sum < target){
                     l++;
                 }else{
                     r--;
                 }
+                
             }
         }
         return res;
