@@ -14,9 +14,9 @@
  * }
  */
 class Solution {
-    int res = 0;
+    int res  = 0;
     public int sumNumbers(TreeNode root) {
-        helper(root , 0);
+        helper(root, 0);
         return res;
     }
     
