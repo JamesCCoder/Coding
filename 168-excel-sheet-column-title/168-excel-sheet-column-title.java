@@ -1,10 +1,10 @@
 class Solution {
-    public String convertToTitle(int columnNumber) {
+    public String convertToTitle(int col) {
         String res = "";
-        while(columnNumber != 0){
-            char c = (char)((columnNumber-1) % 26 + 65);
+        while(col != 0){
+            char c = (char)((col-1) % 26 + 65);
             res = c + res;
-            columnNumber = (columnNumber-1) / 26;
+            col = (col-1) / 26;
         }
         return res;
     }
